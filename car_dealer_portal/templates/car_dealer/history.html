@@ -1,0 +1,34 @@
+{% extends 'car_dealer/base.html' %}
+{% block content %}
+<div class="w3-bar w3-black w3-large">
+  <div class="w3-bar-item w3-left w3-black">Admin: {{user.username}}</div>
+  <a class="w3-bar-item w3-btn w3-black w3-right" href="/car_dealer_portal/logout/">Logout</a>
+  <a class="w3-bar-item w3-btn w3-green w3-right " href="/car_dealer_portal/auth/">Home</a>
+  <a class="w3-bar-item w3-btn w3-green w3-right" href="/car_dealer_portal/order_list/">Orders</a>
+  <a class="w3-bar-item w3-btn w3-green w3-right" href="/car_dealer_portal/manage_vehicles/">Vehicles</a>
+  <div class="w3-bar-item w3-yellow w3-right" href="/car_dealer_portal/history/">Wallet :₱{{wallet}}</div>
+</div>
+
+<h4 class="w3-center" style="padding-top:50">History</h4>
+<div style="padding:50">
+<table class="w3-table w3-striped w3-center">
+  {% for order in order_list %}
+  <tr>
+    <td>Name : {{order.vehicle.car_name}}</td>
+    <td>Rent : {{order.rent}}</td>
+    <td>Days : {{order.days}}</td>
+    <td><form action = "/car_dealer_portal/complete/" method="post">
+          {% csrf_token %}
+        </form>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+</div>
+
+<div> 
+  {% include 'car_dealer/footer.html' %} 
+
+</div>
+
+{% endblock %}

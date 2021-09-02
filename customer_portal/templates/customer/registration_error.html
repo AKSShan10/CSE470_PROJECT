@@ -1,0 +1,13 @@
+{% extends 'customer/base.html'%}
+{% block content %}
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/Style.css' %}">
+<div class="Welcome"> Welcome to online car rental system</div><br><br>
+
+<p>username already exists, try using a different username. <a href="/customer_portal/login/">login page</a></p>
+<div style="margin-top: 200px;">
+    {% include 'customer/footer.html' %} 
+  
+  </div>
+{% endblock %}

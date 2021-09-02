@@ -1,0 +1,66 @@
+{% load static %}
+<html>
+<head>
+  <title>Online Car Rental System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{% static 'css/Style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/w3.css' %}">
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css.css' %}">
+</head>
+<body>
+  <header>
+    <nav id="header-nav" class="navbar navbar-default">
+      <div class= "title">
+        <h1 >Online Car Rental System<h1>
+      </div>
+    </nav>
+    
+  </header>
+  <div class="Welcome"> Welcome to online car rental system</div><br><br>
+  
+  <div class="w3-display-container" style="height:400px;">
+    <div class="w3-display-middle">
+
+  <form class="w3-container w3-center" action="/customer_portal/login/" mehtod="POST">{% csrf_token %}
+    <input class="w3-green w3-btn w3-large w3-round-large w3-padding-32" type="submit" value="Customer Login">
+  </form>
+<br><br><br>
+  <form class="w3-container w3-center" action="/car_dealer_portal/login/" method="POST">{% csrf_token %}
+    <input class="w3-btn w3-blue w3-large w3-round-large w3-padding-32" type="submit" value="Admin Login">
+  <form>
+  </div>
+</div>
+  
+ <!-- Footer -->
+ <footer id="main-footer" class="py-2">
+  <div class="container footer-container">
+    <div class="about">
+      <h3>About us:</h3>
+      <p>The company established in 2019. It is the leading company in the country which is providing the online car rental system..</p>
+    </div>
+    <div class="address">
+      <h3>Address:</h3>
+        <p>Head Office:Motijheel</p>
+        <p>Road no: X, House No: Y</p>
+        <p>Dhaka, Bangladesh.</p>
+    </div>
+    <div class="hours">
+      <h3>Hours:</h3>
+        Sat-Thurs: 10am - 5:00pm<br>
+        Friday: Closed
+    </div>
+    <div class="contact">
+      <h3>Contacts:</h3>
+      Email:random.randit@gmail.com<br>
+      Phone Number:0121564
+ 
+    </div>
+    <div>
+      <p>
+        Copyright &copy; 2019, All Rights Reserved
+      </p>
+    </div>
+  </div>
+</footer>
+<body>
+</html>

@@ -1,0 +1,11 @@
+{% extends 'car_dealer/base.html'%}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/Style.css' %}">
+<div class="Welcome"> Welcome to online car rental system</div><br><br>
+<p>Username Already Exists, try using a different username. <a href="/car_dealer_portal/login/">Login page</a></p>
+<div style="margin-top: 200px;">
+    {% include 'customer/footer.html' %} 
+  
+  </div>
+{% endblock %}

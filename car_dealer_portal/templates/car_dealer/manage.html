@@ -1,0 +1,34 @@
+{% extends 'car_dealer/base.html' %}
+{% block content %}
+<div class="w3-bar w3-black w3-large">
+  <div class="w3-bar-item w3-left w3-black">Admin: {{user.username}}</div>
+  <a class="w3-bar-item w3-btn w3-black w3-right" href="/car_dealer_portal/logout/">Logout</a>
+  <a class="w3-bar-item w3-btn w3-green w3-right " href="/car_dealer_portal/auth/">Home</a>
+  <a class="w3-bar-item w3-btn w3-green w3-right" href="/car_dealer_portal/order_list/">Orders</a>
+  <a class="w3-bar-item w3-btn w3-green w3-right" href="/car_dealer_portal/manage_vehicles/">Vehicles</a>
+  <a class="w3-bar-item w3-btn w3-yellow w3-right" href="/car_dealer_portal/history/">Wallet</a>
+</div>
+<h4 class="w3-center" style="padding-top:50">Your Vehicles</h4>
+<div style="padding:50">
+<table class="w3-table w3-striped w3-center">
+{% for vehicle in vehicle_list %}
+  <tr>
+    <td style="padding:20;">Name : {{vehicle.car_name}}</td>
+    <td style="padding:20;">Color : {{vehicle.color}}</td>
+    <td style="padding:20;">Capacity : {{vehicle.capacity}}</td>
+    <td style="padding:20;">Pincode : {{vehicle.area.pincode}}
+    <td style="padding:20;"><form action = "/car_dealer_portal/delete/" method="post">
+          {% csrf_token %}
+          <input type="hidden" name="id" value="{{vehicle.id}}">
+          <input class="w3-btn w3-black" type="submit" value="delete">
+        </form>
+    </td>
+  </tr>
+{% endfor %}
+</table>
+</div>
+<div> 
+  {% include 'car_dealer/footer.html' %} 
+
+</div>
+{% endblock %}

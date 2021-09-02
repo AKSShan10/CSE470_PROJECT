@@ -1,0 +1,64 @@
+{% extends 'customer/base.html' %}
+{% block content %}
+
+{% if form.errors %}
+
+{% endif %}
+{% load static %}
+<html>
+<head>
+  <title>Online Car Rental System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{% static 'css/Style.css' %}">
+</head>
+<body>
+  <div class="Welcome"> Welcome to online car rental system</div><br><br>
+
+<div class="w3-display-container" style="height:500px;">
+  <div class="w3-display-middle">
+  <form class="w3-container" action="/customer_portal/auth/" method="POST">{% csrf_token %}
+    <lable style="color:black">Username :</lable> <input class="w3-input" type="text" name="username"><br><br>
+    <lable>Password :</lable> <input class="w3-input" type="password" name="password"><br><br>
+    <input class="w3-btn w3-green" type="submit">
+  </form><br><br>
+  <div class="w3-container">
+  <a class="w3-btn w3-red" href="/customer_portal/register/">New User ? Sign up Here</a>
+  <a class="w3-btn w3-blue" href="/">Home</a>
+  </div>
+  </div>
+  </div>
+  
+ <!-- Footer -->
+ <footer id="main-footer" class="py-2">
+  <div class="container footer-container">
+    <div>
+      <h3 style="margin-left: 25px;">About us:</h3>
+      <p style="margin-left: 25px;">The company established in 2019. It is the leading company in the country which is providing the online car rental system..</p>
+    </div>
+    <div>
+      <h3 style="margin-left: 45px;">Address:</h3>
+        <p style="margin-left: 45px;">Head Office:Motijheel</p>
+        <p style="margin-left: 45px;">Road no: X, House No: Y</p>
+        <p style="margin-left: 45px;">Dhaka, Bangladesh.</p>
+    </div>
+    <div>
+      <h3>Hours:</h3>
+        Sat-Thurs: 10am - 5:00pm<br>
+        Friday: Closed
+    </div>
+    <div>
+      <h2>Contacts:</h2>
+      Email:random.randit@gmail.com<br>
+      Phone Number:0121564
+ 
+    </div>
+    <div>
+      <p>
+        Copyright &copy; 2019, All Rights Reserved
+      </p>
+    </div>
+  </div>
+</footer>
+<body>
+</html>
+{% endblock %}
