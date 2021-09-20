@@ -101,7 +101,7 @@ def search_results(request):
 def rent_vehicle(request):
     id = request.POST['id']
     vehicle = Vehicles.objects.get(id = id)
-    cost_per_day = int(vehicle.capacity)*400
+    cost_per_day = int(vehicle.capacity)*600
     return render(request, 'customer/confirmation.html', {'vehicle':vehicle, 'cost_per_day':cost_per_day})
 
 @login_required
@@ -113,7 +113,7 @@ def confirm(request):
     vehicle = Vehicles.objects.get(id = vehicle_id)
     if vehicle.is_available:
         car_dealer = vehicle.dealer
-        rent = (int(vehicle.capacity))*400*(int(days))
+        rent = (int(vehicle.capacity))*600*(int(days))
         car_dealer.wallet += rent
         car_dealer.save()
         try:
@@ -153,7 +153,7 @@ def update_order(request):
     car_dealer.wallet -= int(order.rent)
     car_dealer.save()
     order.delete()
-    cost_per_day = int(vehicle.capacity)*400
+    cost_per_day = int(vehicle.capacity)*600
     return render(request, 'customer/confirmation.html', {'vehicle':vehicle}, {'cost_per_day':cost_per_day})
 
 @login_required
